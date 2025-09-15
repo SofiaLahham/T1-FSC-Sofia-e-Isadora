@@ -1,0 +1,24 @@
+Problema 01:
+main
+    ldw v0,zr,n       ; v0 = N
+    add v1,zr,0x0030  ; v1 = ponteiro (0x30)
+    add v2,zr,0       ; a = 0
+    add v3,zr,1       ; b = 1
+
+loop
+    stw v3,v1         ; grava termo atual (b)
+    add v1,v1,2       ; próximo endereço
+    sub v0,v0,1       ; N--
+    beq v0,zr,end     ; fim se N=0
+
+    add v4,zr,v2      ; v4 = a
+    add v4,v3         ; v4 = a + b
+    add v2,zr,v3      ; a = b
+    add v3,zr,v4      ; b = a+b
+    beq zr,zr,loop    ; repete
+
+end
+    hlt
+
+n
+    7                 ; quantidade de termos
