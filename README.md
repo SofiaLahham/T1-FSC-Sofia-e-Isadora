@@ -38,3 +38,13 @@ A diferença é que todos os números tinham que ficar ímpares. Por isso sempre
 No fim, conseguimos deixar os 64 valores copiados a partir de 0x90 todos ímpares.
 
 <img width="1268" height="955" alt="image" src="https://github.com/user-attachments/assets/2d27fdc3-8d0b-4fca-9383-3d8678fcca36" />
+
+.
+
+PROBLEMA 5: Nesse problema a gente precisava procurar, entre os endereços 0x60 e 0x70, dois números cuja soma fosse igual a 10. Se encontrássemos esses dois números, deveríamos gravar as posições (endereços) deles em 0x80 e 0x90. No nosso teste, colocamos os valores 4, 6, 7 e 2 na memória a partir de 0x60. O programa rodou e achou que 4 + 6 = 10. Com isso, ele gravou o endereço do 4 (0x60) em 0x80 e o endereço do 6 (0x62) em 0x90.
+
+<img width="1264" height="955" alt="image" src="https://github.com/user-attachments/assets/f70fd9a4-f853-4bb0-935f-4da6d091798c" />
+
+.
+
+PROBLEMA 6: 
