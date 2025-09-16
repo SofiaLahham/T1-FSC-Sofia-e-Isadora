@@ -28,4 +28,13 @@ PROBLEMA 2: nós geramos os primeiros números da sequência de Fibonacci e grav
 PROBLEMA 3: percorremos os valores guardados na memória entre os endereços 0x40 e 0x80 para descobrir qual é o maior número positivo. A cada passo, o código lê o número atual, ignora se ele não for positivo e compara com o maior que já tínhamos encontrado. Se for maior, o valor é atualizado.
 
 No final, o número mais alto encontrado é gravado no endereço 0x90, onde podemos ver o resultado claramente no simulador. Assim, conseguimos identificar de forma simples qual era o maior valor positivo daquela faixa de memória.
+
 <img width="1267" height="950" alt="image" src="https://github.com/user-attachments/assets/f434f1d0-3ab9-4343-a8e4-676818e5bc79" />
+
+.
+
+PROBLEMA 4: pegamoa os valores que estavam na memória entre 0x40 e 0x80 e copiamos para outro lugar, começando no endereço 0x90.
+A diferença é que todos os números tinham que ficar ímpares. Por isso sempre que o programa encontrava um número par, somava +1 antes de gravar.
+No fim, conseguimos deixar os 64 valores copiados a partir de 0x90 todos ímpares.
+
+<img width="1268" height="955" alt="image" src="https://github.com/user-attachments/assets/2d27fdc3-8d0b-4fca-9383-3d8678fcca36" />
