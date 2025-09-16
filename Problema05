@@ -1,4 +1,3 @@
-Problema 05 (AJUSTAR):
 main
     add v0,zr,0x0060     ; começa em 0x60
     add v2,zr,0x0072     ; vai até 0x70 (0x72 = fim)
