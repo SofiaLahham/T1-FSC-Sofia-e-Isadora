@@ -1,4 +1,3 @@
-Problema 02:
 main
     ldw v0,zr,n         ; v0 = N
     add v1,zr,0x0030    ; v1 = addr inicial (0x30)
