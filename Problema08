@@ -1,4 +1,3 @@
-Problema 08:
 main
     add v0,zr,nome     ; v0 aponta p/ nome
 
