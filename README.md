@@ -22,3 +22,10 @@ PROBLEMA 1: foi feito para guardar na memória os primeiros números ímpares, c
 PROBLEMA 2: nós geramos os primeiros números da sequência de Fibonacci e gravamos na memória a partir do endereço 0x30. O valor N define quantos números devem ser criados. O código começa com os dois primeiros termos da sequência (1 e 1) e, a cada volta, calcula o próximo número somando os dois anteriores. Cada resultado foi colocado em sequência na memória, um do lado do outro (pulando de 2 em 2, pois cada número ocupa uma palavra). No exemplo de teste que criamos com N = 9, a memória mostra corretamente os valores 1, 1, 2, 3, 5, 8, 13, 21 e 34.
 
 <img width="1271" height="952" alt="image" src="https://github.com/user-attachments/assets/a3be3dab-907c-44ac-869f-4499b3886c8e" />
+
+.
+
+PROBLEMA 3: percorremos os valores guardados na memória entre os endereços 0x40 e 0x80 para descobrir qual é o maior número positivo. A cada passo, o código lê o número atual, ignora se ele não for positivo e compara com o maior que já tínhamos encontrado. Se for maior, o valor é atualizado.
+
+No final, o número mais alto encontrado é gravado no endereço 0x90, onde podemos ver o resultado claramente no simulador. Assim, conseguimos identificar de forma simples qual era o maior valor positivo daquela faixa de memória.
+<img width="1267" height="950" alt="image" src="https://github.com/user-attachments/assets/f434f1d0-3ab9-4343-a8e4-676818e5bc79" />
