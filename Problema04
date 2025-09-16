@@ -1,4 +1,3 @@
-Problema 04
 main
     add v0,zr,0x0040     ; começa a ler em 0x40
     add v1,zr,0x0090     ; começa a gravar em 0x90
