@@ -1,0 +1,45 @@
+Problema 05 (AJUSTAR):
+main
+    add v0,zr,0x0060     ; começa em 0x60
+    add v2,zr,0x0072     ; vai até 0x70 (0x72 = fim)
+    add v7,zr,10         ; alvo = 10
+
+for_i
+    beq v0,v2,end        ; fim?
+
+    sub v1,v1            ; j = i + 2
+    add v1,v0
+    add v1,v1,2
+
+for_j
+    beq v1,v2,next_i     ; acabou j?
+
+    ldw v3,v0            ; valor em i
+    ldw v4,v1            ; valor em j
+
+    sub v5,v5            ; soma = v3+v4
+    add v5,v3
+    add v5,v4
+
+    beq v5,v7,found      ; soma == 10?
+
+    add v1,v1,2          ; próximo j
+    beq zr,zr,for_j
+
+next_i
+    add v0,v0,2          ; próximo i
+    beq zr,zr,for_i
+
+found
+    stw v0,zr,0x0080     ; guarda endereço i
+    stw v1,zr,0x0090     ; guarda endereço j
+    hlt
+
+end
+    hlt
+
+org 0x60
+dw 4
+dw 6
+dw 7
+dw 2
