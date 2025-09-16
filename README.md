@@ -47,4 +47,18 @@ PROBLEMA 5: Nesse problema a gente precisava procurar, entre os endereços 0x60 
 
 .
 
-PROBLEMA 6: 
+PROBLEMA 6: Nesse problema nós invertermos a ordem dos valores que estavam entre os endereços 0x40 e 0x60. Para isso usamos dois ponteiros: um começava do lado esquerdo (0x40) e o outro do lado direito (0x60). Em cada passo o programa lia o valor da esquerda e o da direita, trocava os dois de lugar e depois andava um passo para dentro. Esse processo se repetia até os ponteiros se encontrarem no meio. No final todos os valores da área ficaram “de trás pra frente”, sem precisar usar nada fora do intervalo pedido.
+
+<img width="1266" height="952" alt="image" src="https://github.com/user-attachments/assets/0d2a6674-a14e-40af-aac9-9b9cd32c0607" />
+
+.
+
+PROBLEMA 8: escrevemos nossos nomes na saída do simulador. O programa lê a string armazenada em memória, percorre cada caractere até encontrar o final e manda para a saída, mostrando na tela “SOFIA E ISADORA”.
+
+<img width="1266" height="949" alt="image" src="https://github.com/user-attachments/assets/bba1b13f-914b-4af8-808b-6597dc2952b1" />
+
+.
+
+PROBLEMA 9: o código verifica se uma palavra é um palíndromo (ou seja, se dá pra ler igual de frente pra trás). Primeiro o código lê em 0x60 o tamanho da palavra e depois pega os caracteres a partir de 0x70. Ele compara a letra da esquerda com a da direita, avançando até o meio. Se todas baterem, o simulador mostra a letra S (sim), se alguma for diferente mostra a letra N (não).
+
+<img width="1261" height="949" alt="image" src="https://github.com/user-attachments/assets/22c45301-4814-4136-8c6b-7daf3103b98e" />
