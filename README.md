@@ -62,3 +62,8 @@ PROBLEMA 8: escrevemos nossos nomes na saída do simulador. O programa lê a str
 PROBLEMA 9: o código verifica se uma palavra é um palíndromo (ou seja, se dá pra ler igual de frente pra trás). Primeiro o código lê em 0x60 o tamanho da palavra e depois pega os caracteres a partir de 0x70. Ele compara a letra da esquerda com a da direita, avançando até o meio. Se todas baterem, o simulador mostra a letra S (sim), se alguma for diferente mostra a letra N (não).
 
 <img width="1261" height="949" alt="image" src="https://github.com/user-attachments/assets/22c45301-4814-4136-8c6b-7daf3103b98e" />
+
+.
+
+PROBLEMA 10: o programa lê N caracteres de um texto armazenado na memória (a partir do endereço 0x60) e conta quantas vogais existem nele, considerando tanto maiúsculas quanto minúsculas. Cada vez que encontra um ‘A’, ‘E’, ‘I’, ‘O’ ou ‘U’, soma +1 no contador correspondente. Ao final, os resultados são gravados em posições fixas da memória: 0x40 para a quantidade de A/a, 0x44 para E/e, 0x48 para I/i, 0x50 para O/o e 0x52 para U/u. No teste realizado com a palavra “aEiOuU” e N = 6, a memória mostrou corretamente os valores 1, 1, 1, 1 e 2, representando a quantidade de cada vogal encontrada.
+<img width="1266" height="955" alt="image" src="https://github.com/user-attachments/assets/8c32357d-95ca-428e-8c14-aee713820bc2" />
