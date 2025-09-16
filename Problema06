@@ -1,0 +1,17 @@
+Problema 06:
+main
+    add a0,zr,0x40    ; ponteiro esquerda
+    add a1,zr,0x60    ; ponteiro direita
+
+loop
+    bge a0,a1,end     ; se cruzar, para
+    lbu v0,a0         ; lê da esquerda
+    lbu v1,a1         ; lê da direita
+    stb v1,a0         ; coloca direita na esquerda
+    stb v0,a1         ; coloca esquerda na direita
+    add a0,a0,1       ; anda p/ direita
+    sub a1,a1,1       ; anda p/ esquerda
+    beq zr,zr,loop    ; repete
+
+end
+    hlt               ; fim
