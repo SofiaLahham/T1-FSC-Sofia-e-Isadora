@@ -1,4 +1,3 @@
-Problema 03:
 main
     sub v0,v0            ; maior = 0
     add v1,zr,0x0040     ; começa em 0x40
