@@ -1,24 +1,62 @@
+; P7 — diagonal principal (M,N via entrada)
+
 main
-    add v2,zr,0x0040
-    add v3,zr,0x0061
-    add v4,zr,1
-fill
-    stb v4,v2
-    add v2,v2,1
-    add v4,v4,1
-    bne v2,v3,fill
+    ldw v0,zr,0xf010      ; M
+    stw v0,zr,0x0040
+    ldw v1,zr,0xf010      ; N
+    stw v1,zr,0x0042
 
-    add a0,zr,0x0040
-    add a1,zr,0x0060
-loop
-    bge a0,a1,end
-    lbu v0,a0
-    lbu v1,a1
-    stb v1,a0
-    stb v0,a1
-    add a0,a0,1
-    sub a1,a1,1
-    beq zr,zr,loop
+    ; -------- preencher matriz 0x44 com 1..M*N --------
+    add a0,zr,0x0044      ; a0 = &A[0][0]
+    add a1,zr,1           ; a1 = val = 1
+    sub a2,a2             ; a2 = i = 0
 
-end
+row
+    beq a2,v0,filledok
+    sub a3,a3             ; a3 = j = 0
+col
+    beq a3,v1,nextrow
+    stw a1,a0             ; *p = val
+    add a0,a0,2           ; p += 2
+    add a1,a1,1           ; val++
+    add a3,a3,1           ; j++
+    beq zr,zr,col
+nextrow
+    add a2,a2,1           ; i++
+    beq zr,zr,row
+filledok
+
+    ; -------- extrair diagonal para 0x0100 --------
+    ldw v0,zr,0x0040      ; v0 = M
+    ldw v1,zr,0x0042      ; v1 = N
+    add v2,zr,0x0100      ; v2 = dst
+    add v3,zr,0x0044      ; v3 = src (&A[0][0])
+
+    ; v4 = min(M,N)
+    sub v4,v4
+    add v4,v0             ; v4 = M
+    sub v6,v6
+    add v6,v1             ; v6 = N
+    tlt v6,v0             ; v6=1 se N<M
+    beq v6,zr,keepm
+    sub v4,v4
+    add v4,v1             ; v4 = N
+keepm
+
+    ; v7 = (N+1)*2 bytes
+    sub v7,v7
+    add v7,v1
+    add v7,v7,1
+    lsl v7,v7,1
+
+diag
+    beq v4,zr,done
+    ldw v5,v3
+    stw v5,v2
+    add v3,v7             ; src += stride
+    add v2,v2,2           ; dst += 2
+    sub v4,v4,1
+    bne v4,zr,diag
+
+done
     hlt
