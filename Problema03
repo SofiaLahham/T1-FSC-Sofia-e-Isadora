@@ -1,0 +1,28 @@
+Problema 03:
+main
+    sub v0,v0            ; maior = 0
+    add v1,zr,0x0040     ; começa em 0x40
+    add v3,zr,0x0082     ; fim exclusivo (vai até 0x80)
+
+loop
+    ldw v2,v1            ; v2 = número atual
+
+    sub v4,v4            ; v4 = 0
+    tlt v4,v2            ; v4 = 1 se 0 < v2 (positivo)
+    beq v4,zr,advance    ; se não é positivo, pula
+
+    sub v5,v5            ; v5 = maior  (cópia: zera + soma)
+    add v5,v0
+    tlt v5,v2            ; v5 = 1 se maior < v2
+    beq v5,zr,advance    ; se não é maior, pula
+
+    sub v0,v0            ; maior = v2  (cópia: zera + soma)
+    add v0,v2
+
+advance
+    add v1,v1,2          ; próximo endereço (palavra)
+    bne v1,v3,loop       ; continua até 0x82
+
+end
+    stw v0,zr,0x0090     ; grava maior em 0x90
+    hlt                  ; fim
