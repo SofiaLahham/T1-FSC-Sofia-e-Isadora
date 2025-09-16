@@ -1,4 +1,3 @@
-Problema 06:
 main
     add a0,zr,0x40    ; ponteiro esquerda
     add a1,zr,0x60    ; ponteiro direita
