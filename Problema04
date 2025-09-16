@@ -1,0 +1,25 @@
+Problema 04
+main
+    add v0,zr,0x0040     ; começa a ler em 0x40
+    add v1,zr,0x0090     ; começa a gravar em 0x90
+    add v2,zr,64         ; total = 64 valores
+    add v7,zr,1          ; usado p/ checar se é par
+
+loop
+    ldw v3,v0            ; pega valor da memória
+
+    sub v4,v4            ; limpa v4
+    add v4,v3            ; copia v3 pra v4
+    and v4,v7            ; testa se é ímpar (bit final)
+    bne v4,zr,ok         ; se já é ímpar, pula
+    add v3,v3,1          ; se era par, soma +1
+
+ok
+    stw v3,v1            ; grava no destino
+    add v0,v0,2          ; vai p/ próximo endereço
+    add v1,v1,2          ; avança destino também
+    sub v2,v2,1          ; menos 1 no contador
+    bne v2,zr,loop       ; se não acabou, repete
+
+end
+    hlt                  ; fim do programa
