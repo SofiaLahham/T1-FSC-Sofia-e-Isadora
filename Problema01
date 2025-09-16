@@ -1,12 +1,14 @@
 main
-    ldw v0,zr,0xF010    ; lê N
-    add v1,zr,32        ; endereço inicial (decimal)
-    add v2,zr,1         ; primeiro ímpar
+    ldw v0,zr,0xF010    ; lê N da entrada
+    add v1,zr,32        ; endereço inicial (0x20)
+    add v2,zr,1         ; primeiro número ímpar
+
 loop
-    blt v0,v2,end       ; se N < ímpar atual, para
-    stw v2,v1
-    add v2,v2,2
-    add v1,v1,2
-    beq zr,zr,loop
+    blt v0,v2,end       ; para quando já escreveu N ímpares
+    stw v2,v1           ; salva ímpar na memória
+    add v2,v2,2         ; próximo ímpar
+    add v1,v1,2         ; próximo endereço
+    beq zr,zr,loop      ; repete
+
 end
-    hlt
+    hlt                 ; fim
