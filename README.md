@@ -17,5 +17,6 @@ PROBLEMA 1: foi feito para guardar na memória os primeiros números ímpares, c
 
 <img width="1261" height="951" alt="image" src="https://github.com/user-attachments/assets/da9571d1-3d17-43e8-8ed2-7fa9247aa587" />
 
+.
 
 PROBLEMA 2:
