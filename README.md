@@ -33,23 +33,21 @@ Observação: para gerarmos o print e validarmos o funcionamento no simulador, a
 
 .
 
-PROBLEMA 4: pegamoa os valores que estavam na memória entre 0x40 e 0x80 e copiamos para outro lugar, começando no endereço 0x90.
-A diferença é que todos os números tinham que ficar ímpares. Por isso sempre que o programa encontrava um número par, somava +1 antes de gravar.
-No fim, conseguimos deixar os 64 valores copiados a partir de 0x90 todos ímpares.
+PROBLEMA 4: Este programa pede para o usuário digitar 5 números, guarda esses valores na memória a partir do endereço 0x40 e depois os copia para a região a partir de 0x90. Durante a cópia, ele verifica se o número é par e, nesse caso, soma 1 para transformá-lo em ímpar; se já for ímpar, mantém como está. Nos testes com os números 2, 3, 54, 9 e 6, o resultado final gravado em 0x90..0x98 foi 3, 3, 55, 9 e 7, garantindo que todos saíram ímpares.
 
-<img width="1268" height="955" alt="image" src="https://github.com/user-attachments/assets/2d27fdc3-8d0b-4fca-9383-3d8678fcca36" />
+<img width="1263" height="947" alt="image" src="https://github.com/user-attachments/assets/80fc55bf-ead6-4792-b522-9cd0d2ceb5bf" />
 
 .
 
-PROBLEMA 5: Nesse problema a gente precisava procurar, entre os endereços 0x60 e 0x70, dois números cuja soma fosse igual a 10. Se encontrássemos esses dois números, deveríamos gravar as posições (endereços) deles em 0x80 e 0x90. No nosso teste, colocamos os valores 4, 6, 7 e 2 na memória a partir de 0x60. O programa rodou e achou que 4 + 6 = 10. Com isso, ele gravou o endereço do 4 (0x60) em 0x80 e o endereço do 6 (0x62) em 0x90.
+PROBLEMA 5: Este programa procura, na memória entre os endereços 0x60 e 0x70, dois números cuja soma seja 10. Ele percorre as posições em pares, sem repetir combinações, e quando encontra um par que soma 10 salva os endereços dessas duas posições em 0x80 e 0x90; se não existir nenhum par válido, apenas encerra a execução. Para testar no simulador, digitamos 3 números quando solicitado (4, 6, 7) e o programa verificou todas as combinações possíveis dentro do intervalo indicado.
 
-<img width="1264" height="955" alt="image" src="https://github.com/user-attachments/assets/f70fd9a4-f853-4bb0-935f-4da6d091798c" />
+<img width="1264" height="949" alt="image" src="https://github.com/user-attachments/assets/89117920-abc8-4e69-a1be-7aa059061021" />
 
 .
 
-PROBLEMA 6: Nesse problema nós invertermos a ordem dos valores que estavam entre os endereços 0x40 e 0x60. Para isso usamos dois ponteiros: um começava do lado esquerdo (0x40) e o outro do lado direito (0x60). Em cada passo o programa lia o valor da esquerda e o da direita, trocava os dois de lugar e depois andava um passo para dentro. Esse processo se repetia até os ponteiros se encontrarem no meio. No final todos os valores da área ficaram “de trás pra frente”, sem precisar usar nada fora do intervalo pedido.
+PROBLEMA 6: Este programa pega os dados salvos entre os endereços 0x40 e 0x60 e os deixa “de trás pra frente” no mesmo lugar: ele aponta para o primeiro e o último byte, troca esses dois de posição, depois avança um passo do início e recua um passo do fim, repetindo o processo até chegar ao meio. Todo o trabalho é feito dentro do intervalo 0x40..0x60, sem ler nem escrever fora dele, resultando na inversão completa dos valores nesse trecho da memória.
 
-<img width="1266" height="952" alt="image" src="https://github.com/user-attachments/assets/0d2a6674-a14e-40af-aac9-9b9cd32c0607" />
+<img width="1265" height="946" alt="image" src="https://github.com/user-attachments/assets/23f1c0f1-d309-4618-bac9-3392f6c28371" />
 
 .
 
