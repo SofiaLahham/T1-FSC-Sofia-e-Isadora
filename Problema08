@@ -11,6 +11,5 @@ loop
 fim
     hlt                ; fim
 
-; texto com 0 no final
 nome
     "SOFIA E ISADORA"
