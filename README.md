@@ -14,21 +14,22 @@ Este README, onde explicamos de forma simples como cada programa funciona e most
 A seguir estão os problemas resolvidos, cada um com sua explicação e a evidência da execução.
 
 
-PROBLEMA 1: 
+PROBLEMA 1: esse código escreve na memória os primeiros números ímpares, de acordo com a quantidade que o usuário informar (testamos N = 10 para fazer o print). Primeiro ele lê o valor de N da entrada, começa a guardar os números a partir do endereço 0x20 e inicia com o número 1. A cada volta do loop, ele grava o ímpar atual, soma 2 para descobrir o próximo e avança o endereço da memória em 2 posições.
+
 <img width="1262" height="953" alt="image" src="https://github.com/user-attachments/assets/00a95152-9e11-4922-ac5a-3b2ce94651fd" />
 .
 
-PROBLEMA 2: nós geramos os primeiros números da sequência de Fibonacci e gravamos na memória a partir do endereço 0x30. O valor N define quantos números devem ser criados. O código começa com os dois primeiros termos da sequência (1 e 1) e, a cada volta, calcula o próximo número somando os dois anteriores. Cada resultado foi colocado em sequência na memória, um do lado do outro (pulando de 2 em 2, pois cada número ocupa uma palavra). No exemplo de teste que criamos com N = 9, a memória mostra corretamente os valores 1, 1, 2, 3, 5, 8, 13, 21 e 34.
+PROBLEMA 2: este programa gera os N primeiros números da sequência de Fibonacci e grava cada um na memória a partir do endereço 0x30. Primeiro ele lê N digitado pelo usuário (testamos N= 18 para fazer o print), em seguida começa com os dois primeiros valores da sequência (1 e 1) e, a cada volta, salva o valor atual na memória, soma os dois últimos para descobrir o próximo e anda para o próximo espaço de memória. O processo se repete até completar a quantidade pedida, entãono o programa encerra.
 
-<img width="1271" height="952" alt="image" src="https://github.com/user-attachments/assets/a3be3dab-907c-44ac-869f-4499b3886c8e" />
+<img width="1262" height="950" alt="image" src="https://github.com/user-attachments/assets/9b7cbdff-0d50-43fc-988a-796402ff4f31" />
 
 .
 
-PROBLEMA 3: percorremos os valores guardados na memória entre os endereços 0x40 e 0x80 para descobrir qual é o maior número positivo. A cada passo, o código lê o número atual, ignora se ele não for positivo e compara com o maior que já tínhamos encontrado. Se for maior, o valor é atualizado.
+PROBLEMA 3: esse código tem a função de percorrer a memória entre os endereços 0x40 e 0x80, verificando cada valor salvo nesse intervalo. A cada leitura ele ignora números negativos ou zero e compara apenas os positivos com o maior valor já encontrado até então. No final o maior número positivo é gravado no endereço 0x90, encerrando a execução.
 
-No final, o número mais alto encontrado é gravado no endereço 0x90, onde podemos ver o resultado claramente no simulador. Assim, conseguimos identificar de forma simples qual era o maior valor positivo daquela faixa de memória.
+Observação: para gerarmos o print e validarmos o funcionamento no simulador, adicionamos um pequeno bloco de preenchimento inicial com alguns valores de teste (12, -7, 45, 0, 88, 13, -25).
 
-<img width="1267" height="950" alt="image" src="https://github.com/user-attachments/assets/f434f1d0-3ab9-4343-a8e4-676818e5bc79" />
+<img width="1269" height="954" alt="image" src="https://github.com/user-attachments/assets/34d83a33-a18c-44cf-91ed-5a698b8d32b3" />
 
 .
 
