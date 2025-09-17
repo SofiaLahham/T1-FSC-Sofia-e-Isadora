@@ -47,21 +47,28 @@ PROBLEMA 5: Este programa procura, na memória entre os endereços 0x60 e 0x70, 
 
 PROBLEMA 6: Este programa pega os dados salvos entre os endereços 0x40 e 0x60 e os deixa “de trás pra frente” no mesmo lugar: ele aponta para o primeiro e o último byte, troca esses dois de posição, depois avança um passo do início e recua um passo do fim, repetindo o processo até chegar ao meio. Todo o trabalho é feito dentro do intervalo 0x40..0x60, sem ler nem escrever fora dele, resultando na inversão completa dos valores nesse trecho da memória.
 
-<img width="1265" height="946" alt="image" src="https://github.com/user-attachments/assets/23f1c0f1-d309-4618-bac9-3392f6c28371" />
+<img width="1265" height="946" alt="image" src="https://github.com/user-attachments/assets/38fd3947-51c6-4976-9db1-0aa52f8cb190" />
+
+.
+
+PROBLEMA 7: Este programa pega o tamanho da matriz (M em 0x40 e N em 0x42) e os números guardados a partir do endereço 0x44, e salva apenas os que estão na diagonal principal (do canto superior esquerdo descendo até onde a matriz permite). Esses valores são copiados em ordem para a memória a partir do endereço 0x100. No nosso teste, usamos M = 4 e N = 5, e o programa buscou os 4 números da diagonal e colocou todos em sequência a partir de 0x100.
+
+<img width="1263" height="950" alt="image" src="https://github.com/user-attachments/assets/1d01f695-a744-4371-94a7-e7f745d2d0cf" />
 
 .
 
 PROBLEMA 8: escrevemos nossos nomes na saída do simulador. O programa lê a string armazenada em memória, percorre cada caractere até encontrar o final e manda para a saída, mostrando na tela “SOFIA E ISADORA”.
 
-<img width="1266" height="949" alt="image" src="https://github.com/user-attachments/assets/bba1b13f-914b-4af8-808b-6597dc2952b1" />
+<img width="1259" height="952" alt="image" src="https://github.com/user-attachments/assets/fbdb02f6-1497-42e5-95ad-967eb009f2b1" />
 
 .
 
 PROBLEMA 9: o código verifica se uma palavra é um palíndromo (ou seja, se dá pra ler igual de frente pra trás). Primeiro o código lê em 0x60 o tamanho da palavra e depois pega os caracteres a partir de 0x70. Ele compara a letra da esquerda com a da direita, avançando até o meio. Se todas baterem, o simulador mostra a letra S (sim), se alguma for diferente mostra a letra N (não).
 
-<img width="1261" height="949" alt="image" src="https://github.com/user-attachments/assets/22c45301-4814-4136-8c6b-7daf3103b98e" />
+<img width="1261" height="951" alt="image" src="https://github.com/user-attachments/assets/a65e0c79-ff83-4004-9c1b-3611a262a9eb" />
 
 .
 
-PROBLEMA 10: o programa lê N caracteres de um texto armazenado na memória (a partir do endereço 0x60) e conta quantas vogais existem nele, considerando tanto maiúsculas quanto minúsculas. Cada vez que encontra um ‘A’, ‘E’, ‘I’, ‘O’ ou ‘U’, soma +1 no contador correspondente. Ao final, os resultados são gravados em posições fixas da memória: 0x40 para a quantidade de A/a, 0x44 para E/e, 0x48 para I/i, 0x50 para O/o e 0x52 para U/u. No teste realizado com a palavra “aEiOuU” e N = 6, a memória mostrou corretamente os valores 1, 1, 1, 1 e 2, representando a quantidade de cada vogal encontrada.
-<img width="1266" height="955" alt="image" src="https://github.com/user-attachments/assets/8c32357d-95ca-428e-8c14-aee713820bc2" />
+PROBLEMA 10: Este programa conta quantas vezes aparecem as vogais A, E, I, O e U em uma palavra guardada na memória. Ele lê primeiro o tamanho da palavra em 0x58 e depois percorre os caracteres a partir de 0x60, um por um. Para cada letra, verifica se é A/E/I/O/U (aceita maiúsculas e minúsculas) e soma no contador correspondente. No final, grava as quantidades nos endereços combinados: A em 0x40, E em 0x44, I em 0x48, O em 0x50 e U em 0x52, e encerra a execução.
+
+<img width="1263" height="950" alt="image" src="https://github.com/user-attachments/assets/76bc873b-31dc-4635-8832-0019ac42076a" />
