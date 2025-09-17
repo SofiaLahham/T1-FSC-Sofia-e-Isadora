@@ -1,3 +1,4 @@
+; Insira um número inteiro N quando o simulador pedir [(int)?].
 main
     ldw v0,zr,0xF010    ; lê N da entrada
     add v1,zr,32        ; endereço inicial (0x20)
