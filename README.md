@@ -1,4 +1,4 @@
-# T1-FSC-Sofia-e-Isadora
+# Assembly Programming with TRM Processor
 Trabalho 1 da disciplina Fundamentos de Sistemas Computacionais (PUCRS) - Programação em Assembly no processador TRM. Dupla: Sofia Lahham e Isadora.
 
 Este repositório é referente as soluções do T1 de FSC (Fundamentos de Sistemas Computacionais), que desenvolvemos em dupla (Sofia e Isadora).
